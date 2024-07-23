@@ -9,7 +9,12 @@ def encode(password):
     return encoded
 
 #decode
-
+def decode(password):
+    decoded = ''
+    for digit in password:
+        digit = (int(digit) + 7) % 10
+        decoded += str(digit)
+    return decoded
 
 def main():
     while True:
@@ -23,7 +28,7 @@ def main():
 
         elif op == 2:
             if encoded != "":
-                # decoded = decode(encoded)
+                decoded = decode(encoded)
                 print(f"The encoded pass is {encoded}, and the original password is {decoded}.")
             else:
                 print("There is no password to be decoded.")
@@ -36,3 +41,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
